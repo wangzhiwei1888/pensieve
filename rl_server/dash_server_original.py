@@ -34,7 +34,7 @@ class Request_Handler(BaseHTTPRequestHandler):
         return
 
 def run(server_class=HTTPServer, handler_class=Request_Handler, port=8333):
-    server_address = ('localhost', port)
+    server_address = ('0.0.0.0', port)
     httpd = server_class(server_address, handler_class)
     print 'Listening on port ' + str(port)
     httpd.serve_forever()

@@ -22,7 +22,7 @@ where the plot can be viewed at `localhost:6006` from a browser.
 Trained model will be saved in `sim/results/`. We provided a sample pretrained model with linear QoE as the reward signal. It can be loaded by setting `NN_MODEL = './results/pretrain_linear_reward.ckpt'` in `multi_agent.py`.
 
 
-
+##
 
 请确保实际的视频文件已存放在 video_server/video[1-6] 目录下，然后运行
 python get_video_sizes

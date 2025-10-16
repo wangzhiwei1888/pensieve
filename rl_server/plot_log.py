@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
@@ -15,6 +17,8 @@ rewards = []
 with open(LOG_PATH, 'rb') as f:
     for line in f:
         parse = line.split()
+        if len(parse) < 5:
+            continue
         time_stamp.append(float(parse[0]))
         bit_rates.append(float(parse[1]))
         buffer_occupancies.append(float(parse[2]))
@@ -37,6 +41,9 @@ ax4.plot(time_stamp[-PLOT_SAMPLES:], rebuffer_times[-PLOT_SAMPLES:])
 ax4.set_ylabel('rebuffer time (sec)')
 ax4.set_xlabel('Time (ms)')
 
-f.subplots_adjust(hspace=0)
+f.subplots_adjust(hspace=0.3)
 
-plt.show()
+# plt.show()
+
+plt.savefig('log.png', dpi=150, bbox_inches='tight')
+print('figure saved: log.png')
